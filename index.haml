@@ -1,0 +1,27 @@
+!!! 5
+
+%html
+  %head
+    %title Berlin police reports
+    %meta{ :charset => "UTF-8" }
+    %meta{ :content => "Aggregates of Berlin police reports per area", :name => "description" }
+    %link{ :rel => "icon", :href => "favicon.ico" }
+    - stylesheets = ""
+    - stylesheets.split(', ').each do |ss|
+      %link{ :rel =>"stylesheet", :href => ss}
+    - base_scripts = "http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js,
+                      js/highcharts.js,
+                      js/criminal-berlin.js"
+    - base_scripts.split(', ').each do |script|
+      %script{ :type => "text/javascript", :src => script }
+
+  %body  
+    %div#container
+    %div
+      %p
+        Source:
+        %a{:target => "_blank", :href => "https://twitter.com/berlinpolice"}
+          @berlinpolice
+      %p
+        Note data is stracted from a lazy parsing from the source, therefore it is very probably slightly inaccurate.
+    
